@@ -10,6 +10,11 @@
 !.yarn/releases
 !.yarn/versions
 
+# backend
+venv
+db.sqlite3
+media
+
 # testing
 /coverage
 
