@@ -1,12 +1,17 @@
 from rest_framework import viewsets
 from .models import Category, Product
-from .serializers import CategorySerializer, ProductSerializer
+from .serializers import CategorySerializer, ProductSerializer, ProductCreateSerializer
 
 
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     permission_classes = []  # Add permissions like IsAuthenticated if needed
+
+    def get_serializer_class(self):
+        if (self.request.method == "POST"):
+            return ProductCreateSerializer
+        return super().get_serializer_class()
 
     def get_queryset(self):
         queryset = Product.objects.all()

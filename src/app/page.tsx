@@ -1,17 +1,15 @@
+import Products from "../lib/ProductsList"
+
 
 async function Home() {
-  const products = await (await fetch("http://localhost:8000/api/products/")).json()
+
   const categories = await (await fetch("http://localhost:8000/api/categories/")).json()
 
   return (
-    <div className="">
+    <section className="py-10" >
 
-      <h1>
-        Products
-      </h1>
-      <pre className="pre">
-        {JSON.stringify(products, null, 2)}
-      </pre>
+
+      <Products categories={categories} />
 
       <h1 >
         Categories
@@ -19,11 +17,7 @@ async function Home() {
       <pre className="pre">
         {JSON.stringify(categories, null, 2)}
       </pre>
-
-    </div>
+    </section>
   );
 }
-
-
-
 export default Home;

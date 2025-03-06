@@ -9,9 +9,14 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
+    category = CategorySerializer(required=True)
+
     class Meta:
         model = Product
         fields = "__all__"
-        extra_kwargs = {
-            'category': {'required': True}
-        }
+
+
+class ProductCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = "__all__"
