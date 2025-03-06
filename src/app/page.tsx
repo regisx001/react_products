@@ -11,12 +11,12 @@ async function Home() {
 
       <Products categories={categories} />
 
-      <h1 >
+      {/* <h1 >
         Categories
       </h1>
       <pre className="pre">
         {JSON.stringify(categories, null, 2)}
-      </pre>
+      </pre> */}
     </section>
   );
 }
